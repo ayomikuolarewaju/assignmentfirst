@@ -9,7 +9,7 @@ function Counter() {
     }
     const decrement = () => {
         if (count === 0) {
-           return window.alert("Count cannot be less than 0");;
+           return window.alert(`Count cannot be less than ${count}`);;
           
         } 
         setCount(count - 1);

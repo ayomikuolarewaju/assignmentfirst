@@ -6,22 +6,27 @@ import Blog from './Blog.jsx'
 function Home() {
 const [blog, setBlog] = useState(null);
 const [isPending, setIsPending] = useState(true);
+const [empty, setEmpty] = useState("");
 
 useEffect(() => {
-    fetch('http://localhost:8000/blogs')
+    fetch("https://jsonplaceholder.typicode.com/postss")
     .then(response => response.json())
     .then(data => {
         setBlog(data)
-        setIsPending(false);
+        setIsPending(false);  
+        if(!data){
+            setEmpty("No blog available");
+            console.log(empty);
+        }
     })
     .catch(error => console.error('Error fetching blog:', error));
     
-}, []);                                                                                 
+}, [empty]);                                                                                 
 
   return (
     <div>
         {isPending && <div>Loading...</div>}
-        {blog && <Blog blog={blog}/>}
+        {blog ? <Blog blog={blog}/> : <div><p>{empty}</p></div>}
     </div>
   )
 }

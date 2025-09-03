@@ -7,7 +7,7 @@ function Blog({blog}) {
         {blog.map((bl,index)=>(
             <div key={index}>
                 <h2>{bl.title}</h2>
-                <p>{bl.content}</p>
+                <p>{bl.body}</p>
             </div>
         ))}
     </div>

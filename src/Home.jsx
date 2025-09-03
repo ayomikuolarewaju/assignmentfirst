@@ -9,7 +9,7 @@ const [isPending, setIsPending] = useState(true);
 const [empty, setEmpty] = useState("");
 
 useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/postss")
+    fetch("https://jsonplaceholder.typicode.com/posts")
     .then(response => response.json())
     .then(data => {
         setBlog(data)
